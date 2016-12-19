@@ -1,5 +1,10 @@
-.block-blue {
-  background-color: #dae8f4;
+body { 
+  padding-top: 30px; 
+  padding-left: 10px;
+}
+
+.nav-black-hover:hover {
+  color: #000000;
 }
 
 .inline-img {
