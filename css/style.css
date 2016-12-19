@@ -1,0 +1,20 @@
+.block-blue {
+  background-color: #dae8f4;
+}
+
+.inline-img {
+  display: block;
+  height: auto;
+  max-width: 92%;
+  width: 92%;
+}
+
+.inline-img-right {
+  float: right;
+}
+
+.img-small {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
