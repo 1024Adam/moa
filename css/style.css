@@ -7,6 +7,10 @@ body {
   color: #000000;
 }
 
+.right-bar {
+  border-left: 5px #000000;
+}
+
 .inline-img {
   display: block;
   height: auto;
