@@ -27,3 +27,30 @@ body {
   max-width: 100%;
   width: 100%;
 }
+
+input[type=number] {
+  width: 40px;
+}
+
+.recipe-name {
+  font-weight: bold; 
+}
+
+.table-link:hover {
+  color: #3f3f3f; 
+  text-decoration: none; 
+}
+
+.btn-secondary {
+  color: #373a3c;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-secondary:hover {
+  background-color: #eee;
+}
+
+.td-number {
+  text-align:right;
+}

@@ -1,7 +1,7 @@
-var divs = ["home", "meals", "grocery"]; 
 
 function showDiv(name)
 {
+  var divs = ["home", "recipes", "grocery"]; 
   for (var i = 0; i < divs.length; i++) {
     if(name === divs[i])
     {
@@ -14,20 +14,25 @@ function showDiv(name)
       $("#list-" + divs[i]).removeClass("active");
     }
   }
+  $("#add_success").hide();
+  $("#add_error").hide();
 }
 
 $(document).ready(function() {
-  showDiv("home");
+  showDiv("recipes");
 });
 
-$("#menu-home").click(function() {
-  showDiv("home");
-});
-
-$("#menu-meals").click(function() {
-  showDiv("meals");
+$("#menu-recipes").click(function() {
+  showDiv("recipes");
 });
 
 $("#menu-grocery").click(function() {
   showDiv("grocery");
 });
+
+function addToGrocery()
+{
+  var divs = ["add_success", "add_error"];
+   
+  $("#add_success").fadeIn();
+}
