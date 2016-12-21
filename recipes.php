@@ -6,12 +6,12 @@
   include_once('include/db.php'); 
 ?>
 <div id="recipes" class="container">
-  <h1>Recipes</h1>
+  <h2>Recipes</h2>
   <form id="recipe_form" action="index.php" method="post">
-    <div id="add_success" class="alert alert-success" role="alert">
+    <div id="add_success" class="alert alert-success alert-small" role="alert">
       Your items have been added to your grocery list.
     </div>
-    <div id="add_error" class="alert alert-danger" role="alert">
+    <div id="add_error" class="alert alert-danger alert-small" role="alert">
       You have not selected any recipes
     </div>
     <button type="button" class="btn btn-primary" onclick="addToGrocery()">
@@ -32,7 +32,7 @@
         <?php
           $query = "SELECT id, name, type, descr, serving
                     FROM recipes
-                    ORDER BY name ASC";
+                    ORDER BY id ASC";
           $result = $db->query($query);
           $i = 1;
           while($row = $result->fetch_array())
@@ -51,7 +51,7 @@
             echo   '<td>' . $descr . '</td>';
             echo   '<td class="td-number">' . $serving . '</td>';
             echo   '<td>
-                      <button type="button" class="btn btn-secondary">View/Edit</button>
+                      <button type="button" id="button' . $i . '" class="btn btn-secondary" onClick="processButtonClick(this.id)">View/Edit</button>
                     </td>';
             echo '</tr>';
             $i++;

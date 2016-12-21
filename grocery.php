@@ -6,6 +6,6 @@
   include_once('include/db.php'); 
 ?>
 <div id="grocery" class="container">
-  <h1>Grocery List</h1>
+  <h2>Grocery List</h2>
   <p>Grocery!</p>
 </div>

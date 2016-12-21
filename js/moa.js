@@ -33,6 +33,10 @@ $("#menu-grocery").click(function() {
 function addToGrocery()
 {
   var divs = ["add_success", "add_error"];
-   
   $("#add_success").fadeIn();
+}
+
+function processButtonClick(id)
+{
+  window.location = "./edit_recipe.php?id=" + id;
 }
