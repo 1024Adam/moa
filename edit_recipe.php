@@ -35,50 +35,18 @@
     </div>
     <div class="col-sm-7">
       <div class="jumbotron jumbo-padding">
-        <?php
-          $id = explode('button', $_GET["id"]);
-          $id = $id[1];
-          $query = 'SELECT recipes.id as recipid, recipes.name as recipname, recipes.type as reciptype, recipes.descr as recipdesc, recipes.serving as recipserving
-                    FROM recipes
-                    WHERE recipes.id = ' . $id . '';
-          $result = $db->query($query);
-          $row = $result->fetch_array();
-         
-          $recipid = $row["recipid"];
-          $recipname = $row["recipname"];
-          $reciptype = $row["reciptype"];
-          $recipdesc = $row["recipdesc"];
-          $recipserving = $row["recipserving"];
-         
-          echo '<form>
-                  <div class="form-group row">
-                    <label for="recipname" class="col-sm-2 col-form-label">Name</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" id="recipname" value="' . $recipname . '">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="reciptype" class="col-sm-2 col-form-label">Type</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" id="reciptype" value="' . $reciptype . '">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="recipdesc" class="col-sm-2 col-form-label">Description</label>
-                    <div class="col-sm-4">
-                      <textarea class="form-control" id="recipdesc">' . $recipdesc . '</textarea>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="recipserving" class="col-sm-2 col-form-label">Serving</label>
-                    <div class="col-sm-4">
-                      <input type="number" class="form-control" id="recipserving" value="' . $recipserving . '" min="1", max="10">
-                    </div>
-                  </div>
-                </form>';
-
-          $result->close();
-        ?>
+        <form id="edit_form" action="index.php" method="post">
+          <?php
+            $id = explode('button', $_GET["id"]);
+            $id = $id[1];
+             
+            include('meal_info.php');
+            include('ingredient_list.php');
+            include('instruction_list.php');
+          ?>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button id="edit_cancel" class="btn btn-secondary">Cancel</button>
+        </form>
       </div>
     </div>
     <!-- Bootstrap core JavaScript
@@ -88,5 +56,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./js/moa.js"></script>
   </body>
 </html>

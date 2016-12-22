@@ -14,7 +14,7 @@
     <div id="add_error" class="alert alert-danger alert-small" role="alert">
       You have not selected any recipes
     </div>
-    <button type="button" class="btn btn-primary" onclick="addToGrocery()">
+    <button type="button" id="add_to_list_button" class="btn btn-primary">
       Add Selected to Grocery List
     </button>
     <table id=recipe_table class="table">

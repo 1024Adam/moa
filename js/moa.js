@@ -18,25 +18,43 @@ function showDiv(name)
   $("#add_error").hide();
 }
 
-$(document).ready(function() {
-  showDiv("recipes");
-});
-
-$("#menu-recipes").click(function() {
-  showDiv("recipes");
-});
-
-$("#menu-grocery").click(function() {
-  showDiv("grocery");
-});
-
-function addToGrocery()
-{
-  var divs = ["add_success", "add_error"];
-  $("#add_success").fadeIn();
-}
-
 function processButtonClick(id)
 {
   window.location = "./edit_recipe.php?id=" + id;
 }
+
+$(document).ready(function() 
+{
+  showDiv("recipes");
+});
+
+$("#menu-recipes").click(function() 
+{
+  showDiv("recipes");
+});
+
+$("#menu-grocery").click(function() 
+{
+  showDiv("grocery");
+});
+
+$("#add_to_list_button").click(function()
+{
+  var divs = ["add_success", "add_error"];
+  $("#add_success").fadeIn();
+});
+
+$("#ing_button").click(function()
+{
+  $("#ing_list").toggle(200);
+});
+
+$("#instr_button").click(function()
+{
+  $("#instr_list").toggle(200);
+});
+
+$("#edit_cancel").click(function()
+{
+  window.location.href = "./index.php";
+});

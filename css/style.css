@@ -62,8 +62,19 @@ input[type=number] {
 .jumbo-padding {
   padding-top: 50px;
   padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
 }
 
 .alert-small {
   width: 500px;
+}
+
+.dark {
+  color: #aaa;
+  background-color: #aaa;
+}
+
+.decimal-number {
+  width: 100px !important;
 }
