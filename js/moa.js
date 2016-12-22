@@ -58,3 +58,15 @@ $("#edit_cancel").click(function()
 {
   window.location.href = "./index.php";
 });
+
+$("#add_ing").click(function()
+{
+  $("#new_ing").toggle(200);
+  $("#add_ing").hide();
+});
+
+$("#add_instr").click(function()
+{
+  $("#new_instr").toggle(200);
+  $("#add_instr").hide();
+});
