@@ -22,13 +22,13 @@
     echo '<div class="form-group row">
             <label for="instrdesc' . $instrid . '" class="col-sm-2 col-form-label">Step ' . $i . '</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="instrdesc' . $instrid . '" value="' . $instrdesc . '">
+              <input type="text" class="form-control" name="instrdesc' . $instrid . '" id="instrdesc' . $instrid . '" value="' . $instrdesc . '">
             </div>
           </div>
           <div class="form-group row">
             <label for="instrtime' . $instrid . '" class="col-sm-2 col-form-label">Estimated Time</label>
             <div class="col-sm-4">
-              <input type="number" class="form-control decimal-number" id="instrtime' . $instrid . '" step="any" value="' . $instrtime . '" min="0">
+              <input type="number" class="form-control decimal-number" name="instrtime' . $instrid . '" id="instrtime' . $instrid . '" step="any" value="' . $instrtime . '" min="0">
             </div>
           </div>';
     $i++;
@@ -40,13 +40,13 @@
   echo '    <div class="form-group row">
               <label for="newinstrdesc" class="col-sm-2 col-form-label">Step ' . $i . '</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" id="newinstrdesc" value="">
+                <input type="text" class="form-control" name="newinstrdesc" id="newinstrdesc" value="">
               </div>
             </div>
             <div class="form-group row">
               <label for="newinstrtime" class="col-sm-2 col-form-label">Estimated Time</label>
               <div class="col-sm-4">
-                <input type="number" class="form-control decimal-number" id="newinstrtime" step="any" value="0" min="0">
+                <input type="number" class="form-control decimal-number" name="newinstrtime" id="newinstrtime" step="any" value="0" min="0">
               </div>';
   echo '    </div>'; 
   echo '  </div>';

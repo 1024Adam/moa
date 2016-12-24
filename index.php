@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php 
+  session_start();
+  include_once('include/db.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +35,47 @@
     </div>
     <div class="col-sm-6">
       <?php
+        if(strcmp($_POST['edit_submit'], 'true') == 0)
+        {
+          $id = $_POST["recipid"];
+          $query = 'SELECT id, name, descr, amount, type, avg_price
+                    FROM ingredients
+                    WHERE recipe_id = ' . $id . '';
+          $result = $db->query($query);
+          $i = 0;
+          while($row = $result->fetch_array())
+          {
+            $ingid = $row["id"];
+            
+            $ingname = $_POST['ingname' . $ingid];
+            $ingdesc = $_POST['ingdesc' . $ingid];
+            $ingamt = $_POST['ingamt' . $ingid];
+            $ingtype = $_POST['ingtype' . $ingid];
+            $ingavgprice = $_POST['ingprice' . $ingid];
+
+            $querylist[$i] = 'UPDATE ingredients
+                              SET name = "' . $ingname . '", descr = "' . $ingdesc . '", 
+                                  amount = "' . $ingamt . '", type = "' . $ingtype . '"';
+            if(strcmp($ingavgprice, '') == 0)
+            {
+              $querylist[$i] .= ', avg_price = NULL';
+            }
+            else
+            {
+              $querylist[$i] .= ', avg_price = ' . $ingavgprice;
+            }
+            $querylist[$i] .= ' WHERE id = ' . $ingid . '';
+            $i++;
+          }
+          $result->close();
+          for($j = 0; $j < $i; $j++)
+          {
+            //echo '<p>' . $querylist[$j] . '</p>';
+            $query = $querylist[$j];
+            $result = $db->query($query);
+          }
+        }
+          
         include_once('recipes.php');
         include_once('grocery.php');
       ?>

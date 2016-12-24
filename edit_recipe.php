@@ -43,10 +43,11 @@
             include('meal_info.php');
             include('ingredient_list.php');
             include('instruction_list.php');
-            echo '<input type="hidden" id="recipid" value="' . $id . '">';
+            echo '<input type="hidden" name="recipid" id="recipid" value="' . $id . '">';
           ?>
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="button" id="edit_cancel" class="btn btn-secondary">Cancel</button>
+          <input type="hidden" name="edit_submit" id="edit_submit" value="true">
+          <button type="submit" name="edit_save" id="edit_save" class="btn btn-primary">Save</button>
+          <button type="button" name="edit_cancel" id="edit_cancel" class="btn btn-secondary">Cancel</button>
         </form>
       </div>
     </div>

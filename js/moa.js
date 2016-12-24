@@ -70,3 +70,5 @@ $("#add_instr").click(function()
   $("#new_instr").toggle(200);
   $("#add_instr").hide();
 });
+
+
