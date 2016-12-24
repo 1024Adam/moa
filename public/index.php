@@ -39,6 +39,20 @@
         if($_SERVER['REQUEST_METHOD'] === 'POST' && strcmp($_POST['edit_submit'], 'true') == 0)
         {
           $id = $_POST["recipid"];
+          $i = 0;
+ 
+          // UPDATE MEAL INFO          
+          $recipname = $_POST['recipname'];
+          $reciptype = $_POST['reciptype'];
+          $recipdesc = $_POST['recipdesc'];
+          $recipserving = $_POST['recipserving'];
+          $querylist[$i] = 'UPDATE recipes
+                            SET name = ?, type = ?, descr = ?, serving = ?
+                            WHERE id = ?';
+          $paramlist[$i] = array('sssii', &$recipname, &$reciptype, &$recipdesc, &$recipserving, &$id);
+          $i++;
+
+          // UPDATE INGREDIENT INFO          
           $query = 'SELECT id
                     FROM ingredients
                     WHERE recipe_id = ?';
@@ -47,7 +61,6 @@
           $db->query($query, $params);
           $result = $db->fetch();
           
-          $i = 0;
           foreach($result as $row)
           {
             $ingid[$i] = $row["id"];
@@ -74,6 +87,52 @@
             }
             $i++;
           }
+          
+          // TODO: new ingredient
+          $newingname = $_POST['newingname'];
+          if(strcmp($newingname, '') != 0)
+          {
+            $newingdesc = $_POST['newingdesc'];
+            $newingamt = $_POST['newingamt'];
+            $newingtype = $_POST['newingtype'];
+            $newingprice = $_POST['newingprice'];
+
+            //$i++;
+          }
+
+          // UPDATE INSTRUCTION INFO          
+          $query = 'SELECT id
+                    FROM instructions
+                    WHERE recipe_id = ?';
+          $params = array('i', &$id);
+
+          $db->query($query, $params);
+          $result = $db->fetch();
+          
+          foreach($result as $row)
+          {
+            $instrid[$i] = $row["id"];
+            
+            $instrdesc[$i] = $_POST['instrdesc' . $instrid[$i]];
+            $instrtime[$i] = $_POST['instrtime' . $instrid[$i]];
+
+            $querylist[$i] = 'UPDATE instructions
+                              SET descr = ?, est_time = ?
+                              WHERE id = ?';
+            $paramlist[$i] = array('sdi', &$instrdesc[$i], &$instrtime[$i], &$instrid[$i]);
+            
+            $i++;
+          }
+          
+          // TODO: new instruction
+          $newinstrdesc = $_POST['newinstrdesc'];
+          if(strcmp($newinstrdesc, '') != 0)
+          {
+            $newinstrtime = $_POST['newinstrtime'];
+
+            //$i++;
+          }
+          
 
           for($j = 0; $j < $i; $j++)
           {
