@@ -5,7 +5,7 @@
   $query = 'SELECT id, descr, est_time
             FROM instructions
             WHERE recipe_id = ' . $id . '
-            ORDER BY id ASC';
+            ORDER BY sorted_id ASC';
   $db->query($query);
   $result = $db->fetch();
            
@@ -38,7 +38,13 @@
           <div id="new_instr" hidden>';
 
   echo '    <div class="form-group row">
-              <label for="newinstrdesc" class="col-sm-2 col-form-label">Step ' . $i . '</label>
+              <label for="newinstrstep" class="col-sm-2 col-form-label">Step #</label>
+              <div class="col-sm-5">
+                <input type="number" class="form-control" name="newinstrstep" id="newinstrstep" value="1" min="1">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="newinstrdesc" class="col-sm-2 col-form-label">Description</label>
               <div class="col-sm-5">
                 <input type="text" class="form-control" name="newinstrdesc" id="newinstrdesc" value="">
               </div>

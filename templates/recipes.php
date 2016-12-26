@@ -17,6 +17,12 @@
     <button type="button" id="add_to_list_button" class="btn btn-primary">
       Add Selected to Grocery List
     </button>
+    <button type="button" id="new_recipe_button" class="btn btn-primary">
+      Add New Recipe
+    </button>
+    <button type="button" id="new_recipe_button" class="btn btn-primary">
+      Delete Recipe
+    </button>
     <table id=recipe_table class="table">
       <thead>
         <tr>
