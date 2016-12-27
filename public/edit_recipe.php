@@ -35,7 +35,7 @@
       </ul>
     </div>
     <div class="col-sm-7">
-      <div class="jumbotron jumbo-padding">
+      <div class="jumbotron jumbo-padding jumbo-dark">
         <form id="edit_form" action="index.php" method="post">
           <?php
             $id = explode('button', $_GET["id"]);

@@ -39,5 +39,6 @@
             <input type="number" class="form-control" name="recipserving" id="recipserving" value="' . $recipserving . '" min="1", max="10">
           </div>
         </div>';
+  echo '<p>&nbsp;</p>';
 ?>
 

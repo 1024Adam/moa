@@ -66,6 +66,11 @@ input[type=number] {
   padding-bottom: 50px;
 }
 
+.jumbo-dark
+{
+  background-color: #DDD;
+}
+
 .alert-small {
   width: 500px;
 }

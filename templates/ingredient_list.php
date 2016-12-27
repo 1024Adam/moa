@@ -67,6 +67,7 @@
     }
     echo '  </div>
           </div>';
+    echo '<p>&nbsp;</p>';
   }
   echo '  <button type="button" id="add_ing" class="btn btn-secondary">Add New Ingredient</button>
           <div id="new_ing" hidden>
@@ -101,5 +102,6 @@
               </div>';
   echo '    </div>'; 
   echo '  </div>
+          <p>&nbsp;</p>
         </div>';
 ?>

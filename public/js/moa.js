@@ -71,4 +71,7 @@ $("#add_instr").click(function()
   $("#add_instr").hide();
 });
 
-
+$("#new_recipe_button").click(function()
+{
+  window.location.href = "./new_recipe.php";
+});

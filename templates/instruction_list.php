@@ -31,7 +31,8 @@
             <div class="col-sm-4">
               <input type="number" class="form-control decimal-number" name="instrtime' . $instrid . '" id="instrtime' . $instrid . '" step="any" value="' . $instrtime . '" min="0">
             </div>
-          </div>';
+          </div>
+          <p>&nbsp;</p>';
     $i++;
   }
   echo '  <button type="button" id="add_instr" class="btn btn-secondary">Add Next Instruction</button>
@@ -54,7 +55,7 @@
               <div class="col-sm-4">
                 <input type="number" class="form-control decimal-number" name="newinstrtime" id="newinstrtime" step="any" value="0" min="0">
               </div>';
-  echo '    </div>'; 
+  echo '    </div>';
   echo '  </div>';
   echo '</div>';
   echo '<p>&nbsp;</p>';
