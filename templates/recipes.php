@@ -8,11 +8,29 @@
 <div id="recipes" class="container">
   <h2>Recipes</h2>
   <form id="recipe_form" action="index.php" method="post">
+    <div id="new_success" class="alert alert-success alert-small" role="alert">
+      The new recipe has been added successfully.
+    </div>
+    <div id="new_error" class="alert alert-danger alert-small" role="alert">
+      There was a problem adding your the recipe.
+    </div>
+    <div id="update_success" class="alert alert-success alert-small" role="alert">
+      The recipe has been updated successfully.
+    </div>
+    <div id="update_error" class="alert alert-danger alert-small" role="alert">
+      There was a problem updating the selected recipe.
+    </div>
+    <div id="delete_success" class="alert alert-success alert-small" role="alert">
+      The recipes have been deleted successfully.
+    </div>
+    <div id="delete_error" class="alert alert-danger alert-small" role="alert">
+      There was a problem when deleting the selected recipes.
+    </div>
     <div id="add_success" class="alert alert-success alert-small" role="alert">
-      Your items have been added to your grocery list.
+      The recipes have been added to your grocery list.
     </div>
     <div id="add_error" class="alert alert-danger alert-small" role="alert">
-      You have not selected any recipes
+      There was a problem when adding the selected items to your grocery list.
     </div>
     <button type="button" id="add_to_list_button" class="btn btn-primary">
       Add Selected to Grocery List
