@@ -28,7 +28,7 @@
           <div class="form-group row">
             <label for="ingprice' . $i . '" class="col-sm-2 col-form-label">Average Price</label>
             <div class="col-sm-4">
-              <input type="number" class="form-control decimal-number" name="ingprice' . $i . '" id="ingprice' . $i . '" step="any" min="0">
+              <input type="number" class="form-control decimal-number" name="ingprice' . $i . '" id="ingprice' . $i . '" value="0" step="any" min="0">
             </div>
           </div>';
     echo '<p>&nbsp;</p>';

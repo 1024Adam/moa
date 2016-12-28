@@ -51,14 +51,14 @@
             $serving = $row["serving"];
             echo '<tr>';
             echo   '<td>
-                      <input type="number" id="q' . $i . '" value="0" min="0" max="10"/>
+                      <input type="number" id="q' . $id . '" value="0" min="0" max="10"/>
                     </td>';
             echo   '<td class="recipe-name">' . $name . '</td>';
             echo   '<td>' . $type . '</td>';
             echo   '<td>' . $descr . '</td>';
             echo   '<td class="td-number">' . $serving . '</td>';
             echo   '<td>
-                      <button type="button" id="button' . $i . '" class="btn btn-secondary" onClick="processButtonClick(this.id)">View/Edit</button>
+                      <button type="button" id="button' . $id . '" class="btn btn-secondary" onClick="processButtonClick(this.id)">View/Edit</button>
                     </td>';
             echo '</tr>';
 
