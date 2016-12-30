@@ -1,7 +1,6 @@
 <?php 
   session_start();
-  include_once('../classes/Database.php');
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,40 +28,13 @@
     <!-- Static navbar -->
     <div class="col-sm-2">
       <ul class="nav nav-pills nav-stacked">
-        <li id="list-recipes" role="presentation"><a href="#" id="menu-recipes" class="nav-black-hover">Recipes</a></li>
-        <li id="list-grocery" role="presentation"><a href="#" id="menu-grocery" class="nav-blakc-hover">Grocery List</a></li>
+        <li id="list-recipes" role="presentation"><a href="index.php" id="menu-recipes" class="nav-black-hover">Recipes</a></li>
+        <li id="list-grocery" role="presentation"><a href="index.php" id="menu-grocery" class="nav-blakc-hover">Grocery List</a></li>
       </ul>
     </div>
     <div class="col-sm-6">
       <?php
-        $db = new Database();
-        // ADD REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_submit']) && strcmp($_POST['new_submit'], 'true') == 0)
-        {
-          include('../templates/add_recipe.php');
-        }
-        // UPDATE REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_submit']) && strcmp($_POST['edit_submit'], 'true') == 0)
-        {
-          include('../templates/update_recipe.php');
-        }
-        // DELETE REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_submit']) && strcmp($_POST['delete_submit'], 'true') == 0)
-        {
-          $i = 0;
-          $delete_ids = $_POST['del_id'];
-          foreach ($delete_ids as $delete_id)
-          {
-            //echo '<p>' . $delete_id . '</p>';
-            $querylist[$i] = 'DELETE FROM recipes
-                              WHERE id = ?';
-            $paramlist[$i] = array('i', &$delete_id);
-            $i++;
-          }
-        }
-          
-        include_once('../templates/recipes.php');
-        include_once('../templates/grocery.php');
+        include_once('../templates/del_recipe_list.php');
       ?>
     </div>
     <!-- Bootstrap core JavaScript

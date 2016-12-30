@@ -81,3 +81,8 @@ $("#new_recipe_button").click(function()
 {
   window.location.href = "./new_recipe.php";
 });
+
+$("#del_recipe_button").click(function()
+{
+  window.location.href = "./del_recipe.php";
+});

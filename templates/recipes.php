@@ -38,7 +38,7 @@
     <button type="button" id="new_recipe_button" class="btn btn-primary">
       Add New Recipe
     </button>
-    <button type="button" id="del_recipe_button" class="btn btn-primary">
+    <button type="button" id="del_recipe_button" class="btn btn-danger">
       Delete Recipe
     </button>
     <table id=recipe_table class="table">
