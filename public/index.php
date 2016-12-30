@@ -36,28 +36,22 @@
     <div class="col-sm-6">
       <?php
         $db = new Database();
-        // ADD REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_submit']) && strcmp($_POST['new_submit'], 'true') == 0)
+        if($_SERVER['REQUEST_METHOD'] === 'POST')
         {
-          include('../templates/add_recipe.php');
-        }
-        // UPDATE REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_submit']) && strcmp($_POST['edit_submit'], 'true') == 0)
-        {
-          include('../templates/update_recipe.php');
-        }
-        // DELETE REQUEST
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_submit']) && strcmp($_POST['delete_submit'], 'true') == 0)
-        {
-          $i = 0;
-          $delete_ids = $_POST['del_id'];
-          foreach ($delete_ids as $delete_id)
+          // ADD REQUEST
+          if(isset($_POST['new_submit']) && strcmp($_POST['new_submit'], 'true') == 0)
           {
-            //echo '<p>' . $delete_id . '</p>';
-            $querylist[$i] = 'DELETE FROM recipes
-                              WHERE id = ?';
-            $paramlist[$i] = array('i', &$delete_id);
-            $i++;
+            include('../templates/add_recipe.php');
+          }
+          // UPDATE REQUEST
+          if(isset($_POST['edit_submit']) && strcmp($_POST['edit_submit'], 'true') == 0)
+          {
+            include('../templates/update_recipe.php');
+          }
+          // DELETE REQUEST
+          if(isset($_POST['delete_submit']) && strcmp($_POST['delete_submit'], 'true') == 0)
+          {
+            include('../templates/delete_recipe.php');
           }
         }
           

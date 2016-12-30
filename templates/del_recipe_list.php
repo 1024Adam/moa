@@ -10,7 +10,7 @@
   <h2>Recipes</h2>
   <form id="del_recipe_form" action="index.php" method="post">
     <button type="submit" id="del_recipe_button" class="btn btn-danger">
-      Delete Recipe
+      Delete Recipe(s)
     </button>
     <input type="hidden" name="delete_submit" id="delete_submit" value="true"/>
     <table id=recipe_table class="table">
