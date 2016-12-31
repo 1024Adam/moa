@@ -87,6 +87,21 @@ $("#del_recipe_button").click(function()
   window.location.href = "./del_recipe.php";
 });
 
-$("#search").keypress(function() {
-  console.log("hello");
+$("#search").keyup(function() {
+  var keyword = $("#search").val().toLowerCase(); 
+
+  var i = 1;
+  while($("#n" + i).length)
+  {
+    var name = $("#n" + i).val().toLowerCase();
+    var type = $("#t" + i).val().toLowerCase();
+    var desc = $("#d" + i).val().toLowerCase();
+
+    $("#row" + i).show();
+    if(!(name.includes(keyword) || type.includes(keyword) || desc.includes(keyword)))
+    {
+      $("#row" + i).hide();
+    }
+    i++;
+  }
 });

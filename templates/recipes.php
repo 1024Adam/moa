@@ -6,15 +6,15 @@
   include_once('../classes/Database.php'); 
 ?>
 <div id="recipes" class="container">
-  <div class="col-sm-8">
+  <div class="col-xs-9">
     <h2>Recipes</h2>
   </div>
-  <div class="col-sm-3">
+  <div class="col-xs-3">
     <br>
     <input type="input" class="form-control" name="search" id="search" placeholder="Search">
   </div>
   <form id="recipe_form" action="index.php" method="post">
-    <div class="col-sm-10">
+    <div class="col-xs-12">
       <div id="new_success" class="alert alert-success alert-small" role="alert">
         The new recipe has been added successfully.
       </div>
@@ -75,13 +75,19 @@
             $type = $row["type"];
             $descr = $row["descr"];
             $serving = $row["serving"];
-            echo '<tr>';
+            echo '<tr id="row' . $i . '">';
             echo   '<td>
                       <input type="number" id="q' . $id . '" value="0" min="0" max="10"/>
                     </td>';
-            echo   '<td class="recipe-name">' . $name . '</td>';
-            echo   '<td>' . $type . '</td>';
-            echo   '<td>' . $descr . '</td>';
+            echo   '<td class="recipe-name">
+                      <textarea class="borderless" id="n' . $i . '" readonly>' . $name . '</textarea>
+                    </td>';
+            echo   '<td>
+                     <input type="text" class="borderless" size="10" id="t' . $i . '" readonly value="' . $type . '">
+                    </td>';
+            echo   '<td>
+                      <textarea class="borderless" id="d' . $i . '" readonly>' . $descr . '</textarea>
+                    </td>';
             echo   '<td class="td-number">' . $serving . '</td>';
             echo   '<td>
                       <button type="button" id="button' . $id . '" class="btn btn-secondary" onClick="processButtonClick(this.id)">View/Edit</button>
