@@ -83,3 +83,13 @@ input[type=number] {
 .decimal-number {
   width: 100px !important;
 }
+
+.rel-pos {
+  position: relative;
+  height: 200px;
+}
+
+.rel-abs {
+  position: absolute;
+  bottom: 0px;
+}

@@ -86,3 +86,7 @@ $("#del_recipe_button").click(function()
 {
   window.location.href = "./del_recipe.php";
 });
+
+$("#search").keypress(function() {
+  console.log("hello");
+});
