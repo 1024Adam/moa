@@ -89,6 +89,7 @@ $("#del_recipe_button").click(function()
 
 $("#search").keyup(function() {
   var keyword = $("#search").val().toLowerCase(); 
+  var keywords = keyword.split(" ");
 
   var i = 1;
   while($("#n" + i).length)
@@ -96,12 +97,25 @@ $("#search").keyup(function() {
     var name = $("#n" + i).val().toLowerCase();
     var type = $("#t" + i).val().toLowerCase();
     var desc = $("#d" + i).val().toLowerCase();
+    var contained = 1;
 
-    $("#row" + i).show();
-    if(!(name.includes(keyword) || type.includes(keyword) || desc.includes(keyword)))
+    for (var key of keywords)
+    {
+      if(!(name.includes(key) || type.includes(key) || desc.includes(key)))
+      {
+        contained = 0;
+      }
+    }
+
+    if(contained)
+    {
+      $("#row" + i).show();
+    }
+    else
     {
       $("#row" + i).hide();
     }
+
     i++;
   }
 });
