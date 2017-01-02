@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 21, 2016 at 02:30 PM
+-- Generation Time: Jan 02, 2017 at 07:11 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -64,6 +64,7 @@ INSERT INTO `ingredients` (`id`, `recipe_id`, `name`, `descr`, `amount`, `type`,
 CREATE TABLE `instructions` (
   `id` int(11) NOT NULL,
   `recipe_id` int(11) NOT NULL,
+  `sorted_id` int(11) NOT NULL,
   `descr` varchar(255) NOT NULL,
   `est_time` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -72,22 +73,22 @@ CREATE TABLE `instructions` (
 -- Dumping data for table `instructions`
 --
 
-INSERT INTO `instructions` (`id`, `recipe_id`, `descr`, `est_time`) VALUES
-(1, 1, 'Rub sunflower oil on salmon fillets', 1),
-(2, 1, 'Season fillets with salt and pepper', 1),
-(3, 1, ' Grill skin side down (400 F)', 12.5),
-(4, 1, 'Flip and continue grilling', 7.5),
-(5, 2, 'Shake chicken in flour', 2),
-(6, 2, 'Cover chicken in beaten eggs', 5),
-(7, 2, 'Cover chicken in bread crumbs', 5),
-(8, 2, 'Bake in oven (once per side)', 10),
-(9, 2, 'Serve with barbecue sauce', 1),
-(10, 3, 'Break up/add banana', 1),
-(11, 3, 'Add ice cream', 1),
-(12, 3, 'Add Nutella', 0.5),
-(13, 3, 'Add milk (or until full)', 1),
-(14, 3, 'Blend and serve', 1),
-(15, 1, 'Serve with appropriate side', 1);
+INSERT INTO `instructions` (`id`, `recipe_id`, `sorted_id`, `descr`, `est_time`) VALUES
+(1, 1, 1, 'Rub sunflower oil on salmon fillets', 1),
+(2, 1, 2, 'Season fillets with salt and pepper', 1),
+(3, 1, 3, ' Grill skin side down (400 F)', 12.5),
+(4, 1, 4, 'Flip and continue grilling', 7.5),
+(5, 2, 1, 'Shake chicken in flour', 2),
+(6, 2, 2, 'Cover chicken in beaten eggs', 5),
+(7, 2, 3, 'Cover chicken in bread crumbs', 5),
+(8, 2, 4, 'Bake in oven (once per side)', 10),
+(9, 2, 5, 'Serve with barbecue sauce', 1),
+(10, 3, 1, 'Break up/add banana', 1),
+(11, 3, 2, 'Add ice cream', 1),
+(12, 3, 3, 'Add Nutella', 0.5),
+(13, 3, 4, 'Add milk (or until full)', 1),
+(14, 3, 5, 'Blend and serve', 1),
+(15, 1, 5, 'Serve with appropriate side', 1);
 
 -- --------------------------------------------------------
 
