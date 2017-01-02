@@ -64,7 +64,7 @@
         <?php
           $query = 'SELECT id, name, type, descr, serving
                     FROM recipes
-                    ORDER BY id ASC';
+                    ORDER BY name ASC';
           $db->query($query);
           $i = 1;
           $result = $db->fetch();

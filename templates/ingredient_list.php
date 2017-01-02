@@ -59,11 +59,11 @@
             <div class="col-sm-4">';
     if(!is_null($ingprice))
     {
-      echo '  <input type="number" class="form-control decimal-number" name="ingprice' . $ingid . '" id="ingprice' . $ingid . '" step="any" value="' . $ingprice . '" min="0">';
+      echo '  <input type="number" class="form-control decimal-number" name="ingprice' . $ingid . '" id="ingprice' . $ingid . '" step="0.01" value="' . $ingprice . '" min="0">';
     }
     else
     {
-      echo '  <input type="number" class="form-control decimal-number" name="ingprice' . $ingid . '" id="ingprice' . $ingid . '" step="any" min="0">';
+      echo '  <input type="number" class="form-control decimal-number" name="ingprice' . $ingid . '" id="ingprice' . $ingid . '" step="0.01" min="0">';
     }
     echo '  </div>
           </div>';

@@ -119,3 +119,9 @@ $("#search").keyup(function() {
     i++;
   }
 });
+
+$("input[id^='ingprice']").focusout(function() {
+  var num = parseFloat(this.value);
+  num = parseFloat(Math.round(num * 100) / 100).toFixed(2);
+  this.value = num;
+});
