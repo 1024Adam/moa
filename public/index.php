@@ -53,6 +53,11 @@
           {
             include('../templates/delete_recipe.php');
           }
+          // GROCERY REQUEST
+          if(isset($_POST['grocery_submit']) && strcmp($_POST['grocery_submit'], 'true') == 0)
+          {
+            //include('../templates/add_grocery.php');
+          }
         }
           
         include_once('../templates/recipes.php');

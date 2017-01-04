@@ -14,14 +14,6 @@ function showDiv(name)
       $("#list-" + divs[i]).removeClass("active");
     }
   }
-  $("#new_success").hide();
-  $("#new_error").hide();
-  $("#update_success").hide();
-  $("#update_error").hide();
-  $("#delete_success").hide();
-  $("#delete_error").hide();
-  $("#add_success").hide();
-  $("#add_error").hide();
 }
 
 function processButtonClick(id)
