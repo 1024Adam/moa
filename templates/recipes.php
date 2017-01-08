@@ -46,6 +46,13 @@
                     The recipe ingredient(s) have been added to your grocery list.
                   </div>';
           }
+          // GROCERY REQUEST
+          if(isset($_POST['delete_grocery']) && strcmp($_POST['delete_grocery'], 'true') == 0)
+          {
+            echo '<div id="delete_success" class="alert alert-danger alert-small" role="alert">
+                    The recipe ingredient(s) have been removed from the grocery list.
+                  </div>';
+          }
         }
       ?>
       <button type="submit" id="add_to_list_button" class="btn btn-primary">
@@ -99,7 +106,7 @@
                     </td>';
             echo   '<td class="td-number">' . $serving . '</td>';
             echo   '<td>
-                      <button type="button" id="button' . $id . '" class="btn btn-secondary" onClick="processButtonClick(this.id)">View/Edit</button>
+                      <button type="button" id="button' . $id . '" class="btn btn-secondary" onClick="processButtonClick(' . $id . ')">View/Edit</button>
                     </td>';
             echo '</tr>';
 

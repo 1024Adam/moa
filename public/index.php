@@ -56,7 +56,12 @@
           // GROCERY REQUEST
           if(isset($_POST['grocery_submit']) && strcmp($_POST['grocery_submit'], 'true') == 0)
           {
-            //include('../templates/add_grocery.php');
+            include('../templates/add_grocery.php');
+          }
+          // GROCERY REQUEST
+          if(isset($_POST['delete_grocery']) && strcmp($_POST['delete_grocery'], 'true') == 0)
+          {
+            include('../templates/delete_grocery.php');
           }
         }
           

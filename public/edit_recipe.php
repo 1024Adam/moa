@@ -38,8 +38,7 @@
       <div class="jumbotron jumbo-padding jumbo-dark">
         <form id="edit_form" action="index.php" method="post">
           <?php
-            $id = explode('button', $_GET["id"]);
-            $id = $id[1];
+            $id = $_GET["id"];
              
             include('../templates/meal_info.php');
             include('../templates/ingredient_list.php');
