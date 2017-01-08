@@ -3,22 +3,23 @@
   include('../classes/Database.php');
 
   $pdf = new FPDF('P', 'pt', 'A4');
-  $pdf->SetMargins(75, 75, 75);
+  $pdf->SetMargins(70, 70, 70);
   $pdf->SetTitle('GroceryList');
   $pdf->AddPage();
 
-  $width = 100;
+  $width = 115;
+  $last_width = 100;
   $height = 10;
   
   $pdf->SetFont('Arial', 'B', 20);
   $pdf->Cell($width, $height, 'Grocery List');
   $pdf->Ln(4 * $height);
 
-  $pdf->SetFont('Arial', '', 12);
+  $pdf->SetFont('Arial', 'B', 14);
   $pdf->Cell($width, $height, 'Name');
   $pdf->Cell($width, $height, 'Description');
   $pdf->Cell($width, $height, 'Amount');
-  $pdf->Cell($width, $height, 'Price / Amount');
+  $pdf->Cell($last_width, $height, 'Price / Amount');
   $pdf->Ln(3 * $height);
  
   $db = new Database(); 
@@ -35,9 +36,42 @@
   $db->query($query);
   $result = $db->fetch();
 
-  $pdf->SetFont('Arial', '', 11);
-  
-  $pdf->Cell($width, $height, 'Name');
+  $old_recipid = '';
+  foreach($result as $row)
+  {
+    $recipid = $row["recipe_id"];
+    $recipname = $row["recipname"];
+    $name = $row["ingname"];
+    $descr = $row["descr"];
+    $amount = $row["amount"];
+    $price = $row["avg_price"];
+    $format_price = number_format($price, 2, '.', ' ');
+    $quantity = $row["quantity"];
+    if(strcmp($old_recipid, $recipid) != 0)
+    {
+      $old_recipid = $recipid;
+
+      $pdf->Ln(2 * $height);
+      $pdf->SetFont('Arial', '', 12);
+      $pdf->Cell(2 * $width, $height, $recipname);
+      $pdf->Cell(2 * $width, $height, $quantity . ' x');
+      $pdf->Ln(2 * $height);
+    }
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+
+    $pdf->SetFont('Arial', 'B', 11);
+    $pdf->Cell($width, $height, '    ' . $name);
+    $pdf->SetFont('Arial', '', 11);
+
+    $pdf->MultiCell($width, $height, $descr);
+    $descr_height = $pdf->GetY() - $y;
+    $pdf->SetXY($x + (2 * $width), $y);
+
+    $pdf->Cell($width, $height, '    ' . $amount);
+    $pdf->Cell($last_width, $height, $format_price, 0, 0, 'R');
+    $pdf->Ln($descr_height + $height);
+  }
 
   $pdf->Output();
 ?>

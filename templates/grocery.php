@@ -52,7 +52,6 @@
       </thead>
       <tbody>
         <?php
-          $i = 1;
           $old_recipid = '';
           foreach($result as $row)
           {
@@ -84,8 +83,6 @@
             echo   '<td class="td-number">$ ' . $format_price . '</td>';
             echo   '<td>&nbsp;</td>';
             echo '</tr>';
-
-            $i++;
           }
         ?>
       </tbody>
