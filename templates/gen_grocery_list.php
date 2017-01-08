@@ -14,6 +14,8 @@
   
   $pdf->SetFont('Arial', 'B', 20);
   $pdf->Cell($width, $height, 'Grocery List');
+  $pdf->SetFont('Arial', '', 12);
+  $pdf->Cell((2 * $width) + $last_width, $height, 'Page ' . $pdf->PageNo(), 0, 0, 'R');
   $pdf->Ln(4 * $height);
 
   $pdf->SetFont('Arial', 'B', 14);
@@ -45,6 +47,8 @@
       $pdf->AddPage();
       $pdf->SetFont('Arial', 'B', 20);
       $pdf->Cell($width, $height, 'Grocery List');
+      $pdf->SetFont('Arial', '', 12);
+      $pdf->Cell((2 * $width) + $last_width, $height, 'Page ' . $pdf->PageNo(), 0, 0, 'R');
       $pdf->Ln(4 * $height);
 
       $pdf->SetFont('Arial', 'B', 14);
