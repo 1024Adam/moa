@@ -7,6 +7,7 @@
   $pdf->SetTitle('GroceryList');
   $pdf->AddPage();
 
+  $page_height = 792;
   $width = 115;
   $last_width = 100;
   $height = 10;
@@ -39,6 +40,25 @@
   $old_recipid = '';
   foreach($result as $row)
   {
+    if($pdf->GetY() + 75 > $page_height)
+    {
+      $pdf->AddPage();
+      $pdf->SetFont('Arial', 'B', 20);
+      $pdf->Cell($width, $height, 'Grocery List');
+      $pdf->Ln(4 * $height);
+
+      $pdf->SetFont('Arial', 'B', 14);
+      $pdf->Cell($width, $height, 'Name');
+      $pdf->Cell($width, $height, 'Description');
+      $pdf->Cell($width, $height, 'Amount');
+      $pdf->Cell($last_width, $height, 'Price / Amount');
+      $pdf->Ln(3 * $height);
+      
+      $pdf->SetFont('Arial', '', 12);
+      $pdf->Cell(2 * $width, $height, $recipname);
+      $pdf->Cell(2 * $width, $height, $quantity . ' x');
+      $pdf->Ln(2 * $height);
+    }
     $recipid = $row["recipe_id"];
     $recipname = $row["recipname"];
     $name = $row["ingname"];
@@ -49,9 +69,12 @@
     $quantity = $row["quantity"];
     if(strcmp($old_recipid, $recipid) != 0)
     {
+      if(strcmp($old_recipid, '') != 0)
+      {
+        $pdf->Ln(2 * $height);
+      }
       $old_recipid = $recipid;
 
-      $pdf->Ln(2 * $height);
       $pdf->SetFont('Arial', '', 12);
       $pdf->Cell(2 * $width, $height, $recipname);
       $pdf->Cell(2 * $width, $height, $quantity . ' x');
