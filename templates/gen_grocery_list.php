@@ -4,7 +4,7 @@
 
   $pdf = new FPDF('P', 'pt', 'A4');
   $pdf->SetMargins(70, 70, 70);
-  $pdf->SetTitle('GroceryList');
+  $pdf->SetTitle('Grocery_List.pdf');
   $pdf->AddPage();
 
   $page_height = 792;
@@ -98,12 +98,12 @@
     $y = $pdf->GetY();
 
     $pdf->SetFont('Arial', 'B', 11);
-    $pdf->MultiCell($width, $height, '    ' . $name);
+    $pdf->MultiCell($width, $height, '    ' . $name, 0, 'L');
     $max_height = $pdf->GetY() - $y;
     $pdf->SetXY($x + (1 * $width), $y);
     $pdf->SetFont('Arial', '', 11);
 
-    $pdf->MultiCell($width, $height, $descr);
+    $pdf->MultiCell($width, $height, $descr, 0, 'L');
     $max_height = max($max_height, $pdf->GetY() - $y);
     $pdf->SetXY($x + (2 * $width), $y);
 
@@ -112,5 +112,5 @@
     $pdf->Ln($max_height + $height);
   }
 
-  $pdf->Output();
+  $pdf->Output('I', 'Grocery_List.pdf', false);
 ?>
