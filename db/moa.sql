@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2017 at 10:44 PM
+-- Generation Time: Jan 08, 2017 at 02:09 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `moa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grocery`
+--
+
+CREATE TABLE `grocery` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `recipe_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -171,6 +184,12 @@ INSERT INTO `recipes` (`id`, `name`, `type`, `descr`, `serving`) VALUES
 --
 
 --
+-- Indexes for table `grocery`
+--
+ALTER TABLE `grocery`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ingredients`
 --
 ALTER TABLE `ingredients`
@@ -199,6 +218,11 @@ ALTER TABLE `recipes`
 --
 
 --
+-- AUTO_INCREMENT for table `grocery`
+--
+ALTER TABLE `grocery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
@@ -212,7 +236,7 @@ ALTER TABLE `instructions`
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
