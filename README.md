@@ -12,6 +12,7 @@ plan to make during that week.
 The application is coded in PHP (5.6.28), using a MySQL database. The
 file structure is composed as follows:
 
+| Directory        | Description                                                     |
 |------------------|-----------------------------------------------------------------|
 | **./classes/**   | PHP Classes                                                     |
 | **./db/**        | Database structure sample file                                  |
