@@ -29,7 +29,8 @@ file structure is composed as follows:
 ## Special Features
 
 ### Database Class
-This application uses a outside Database php class for all interactions with the database.
+This application uses a outside Database php class for all interactions with the database
+(./classes/Database.php).
 Details about the creator of this class can be found **[here](https://github.com/jakebesworth)**
 
 ### FPDF File Generation
