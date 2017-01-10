@@ -22,9 +22,9 @@ file structure is composed as follows:
 ## Setup
 
 1. Configure MySQL database, with sample database structure file
-... Setup username/password and replace accordingly in ./classes/Database.php
-2. Clone git repository to location of your choice (a place to point the server to)
-3. Navigate to ./public/index.php :)
+2. Setup username/password and replace accordingly in ./classes/Database.php
+3. Clone git repository to location of your choice (a place to point the server to)
+4. Navigate to ./public/index.php :)
 
 ## Special Features
 
