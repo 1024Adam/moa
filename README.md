@@ -30,8 +30,8 @@ file structure is composed as follows:
 
 ### Database Class
 This application uses a outside Database php class for all interactions with the database.
-Details about the creator of this class can be found [here](https://github.com/jakebesworth)
+Details about the creator of this class can be found **[here](https://github.com/jakebesworth)**
 
 ### FPDF File Generation
 This application makes use of the PDF generation tool known as FPDF (./classes/fpdf181/).
-Details about this tool, and how to use it can be found [here](http://www.fpdf.org/)
+Details about this tool, and how to use it can be found **[here](http://www.fpdf.org/)**
