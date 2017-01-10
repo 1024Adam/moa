@@ -24,3 +24,12 @@ file structure is composed as follows:
 2. Clone git repository to location of your choice (a place to point the server to)
 3. Navigate to ./public/index.php :)
 
+## Special Features
+
+### Database Class
+This application uses a outside Database php class for all interactions with the database.
+Details about the creator of this class can be found [here](https://github.com/jakebesworth)
+
+### FPDF File Generation
+This application makes use of the PDF generation tool known as FPDF (./classes/fpdf181/).
+Details about this tool, and how to use it can be found [here](http://www.fpdf.org/)
