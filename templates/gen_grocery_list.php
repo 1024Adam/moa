@@ -10,6 +10,7 @@
   $page_height = 792;
   $width = 125;
   $small_width = 100;
+  $indent = 8;
   $height = 10;
   
   $pdf->SetFont('Arial', 'B', 20);
@@ -49,7 +50,7 @@
     $descr = $row["descr"];
     $amount = $row["amount"];
     $price = $row["avg_price"];
-    $format_price = number_format($price, 2, '.', ' ');
+    $format_price = '$' . number_format($price, 2, '.', ' ');
     $quantity = $row["quantity"];
     if($pdf->GetY() + 75 > $page_height)
     {
@@ -70,8 +71,12 @@
       
       if(strcmp($old_recipid, $recipid) == 0)
       {
+        $x = $pdf->GetX();
+        $y = $pdf->GetY();
+
         $pdf->SetFont('Arial', '', 12);
-        $pdf->Cell(2 * $width, $height, $recipname);
+        $pdf->MultiCell(2 * $width, $height, $recipname, 0, 'L');
+        $pdf->SetXY($x + (2 * $width), $y);
         $pdf->Cell(2 * $width, $height, $quantity . ' x');
         $pdf->Ln(2 * $height);
       }
@@ -89,8 +94,12 @@
       }
       $old_recipid = $recipid;
 
+      $x = $pdf->GetX();
+      $y = $pdf->GetY();
+
       $pdf->SetFont('Arial', '', 12);
-      $pdf->Cell(2 * $width, $height, $recipname);
+      $pdf->MultiCell(2 * $width, $height, $recipname, 0, 'L');
+      $pdf->SetXY($x + (2 * $width), $y);
       $pdf->Cell(2 * $width, $height, $quantity . ' x');
       $pdf->Ln(2 * $height);
     }
@@ -98,17 +107,33 @@
     $y = $pdf->GetY();
 
     $pdf->SetFont('Arial', 'B', 11);
-    $pdf->MultiCell($width, $height, '    ' . $name, 0, 'L');
+    $pdf->Cell($indent, $height, '');
+    $pdf->MultiCell($width - $indent, $height, $name, 0, 'L');
     $max_height = $pdf->GetY() - $y;
     $pdf->SetXY($x + (1 * $width), $y);
     $pdf->SetFont('Arial', '', 11);
 
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+
     $pdf->MultiCell($width, $height, $descr, 0, 'L');
     $max_height = max($max_height, $pdf->GetY() - $y);
-    $pdf->SetXY($x + (2 * $width), $y);
+    $pdf->SetXY($x + (1 * $width), $y);
 
-    $pdf->Cell($width, $height, '    ' . $amount);
-    $pdf->Cell($small_width, $height, '$' . $format_price, 0, 0, 'R');
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+
+    $pdf->Cell($indent, $height, '');
+    $pdf->MultiCell($width - $indent, $height, $amount, 0, 'L');
+    $max_height = max($max_height, $pdf->GetY() - $y);
+    $pdf->SetXY($x + (1 * $width), $y);
+
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+
+    $pdf->MultiCell($width, $height, $format_price, 0, 'L');
+    $max_height = max($max_height, $pdf->GetY() - $y);
+    $pdf->SetXY($x + (1 * $width), $y);
     $pdf->Ln($max_height + $height);
   }
 
