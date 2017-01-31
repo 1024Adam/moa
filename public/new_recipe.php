@@ -37,26 +37,26 @@
         <form id="new_form" action="index.php" method="post">
           <h2>New Recipe</h2> 
        
-          <div class="form-group row">
-            <label for="recipname" class="col-sm-2 col-form-label">Name</label>
+          <div class="form-group required row">
+            <label for="recipname" class="col-sm-2 col-form-label control-label">Name</label>
             <div class="col-sm-5">
               <input type="text" class="form-control" name="recipname" id="recipname" value="" required>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="reciptype" class="col-sm-2 col-form-label">Type</label>
+          <div class="form-group required row">
+            <label for="reciptype" class="col-sm-2 col-form-label control-label">Type</label>
             <div class="col-sm-5">
               <input type="text" class="form-control" name="reciptype" id="reciptype" value="" required>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="recipdesc" class="col-sm-2 col-form-label">Description</label>
+          <div class="form-group required row">
+            <label for="recipdesc" class="col-sm-2 col-form-label control-label">Description</label>
             <div class="col-sm-5">
               <textarea class="form-control" name="recipdesc" id="recipdesc" required></textarea>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="recipserving" class="col-sm-2 col-form-label">Serving</label>
+          <div class="form-group required row">
+            <label for="recipserving" class="col-sm-2 col-form-label control-label">Serving</label>
             <div class="col-sm-4">
               <input type="number" class="form-control" name="recipserving" id="recipserving" value="1" min="1", max="10" required>
             </div>
