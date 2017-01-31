@@ -45,6 +45,10 @@ input[type=number] {
   text-decoration: none; 
 }
 
+.td-number {
+  text-align:right;
+}
+
 .btn-secondary {
   color: #373a3c;
   background-color: #fff;
@@ -53,10 +57,6 @@ input[type=number] {
 
 .btn-secondary:hover {
   background-color: #eee;
-}
-
-.td-number {
-  text-align:right;
 }
 
 .jumbo-padding {
